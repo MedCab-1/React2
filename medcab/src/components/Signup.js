@@ -3,19 +3,15 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import * as Yup from 'yup';
 import { withFormik, Form, Field } from 'formik';
+import '../App.css'
 
-const Signup = ({ values, errors, touched, status, history }) => {
     // const [newUser, setNewUser] = useState([]);
 
-    // useEffect(() => {
-    //     if (status === true) {
-    //         history.push('/');
-    //     }
-    // }, [status]);
+const Signup = ({ values, errors, touched, status, history }) => {
 
     return (
         <div className='sign-up'>
-            <h1>Med Cabinet</h1>
+            <h1>Welcome</h1>
                 <h3>Sign Up Today!</h3>
                     <Form>
                         <Field
@@ -38,14 +34,8 @@ const Signup = ({ values, errors, touched, status, history }) => {
                         )}
                         <button type='submit'>Sign Up</button>
                             <p className='login-link'>Already a Member? 
-                        <Link to='/login'> Login Here</Link></p>
+                        <Link to='/loginform'> Login Here</Link></p>
                     </Form>
-                    {/* {newUser.map(user => {
-                        <ul key={user.id}>
-                            <li>Username: {user.username}</li>
-                            <li>Password: {user.password}</li>
-                        </ul>
-                    })} */}
         </div>
     );
 };
@@ -63,7 +53,8 @@ const FormikSignUpForms = withFormik ({
     }),
     handleSubmit(values, { setStatus, props }) {
         console.log('Submit', values);
-        const URL = 'https://med-cabinet-1.herokuapp.com/'; 
+
+        const URL = 'https://med-cab-backend.herokuapp.com/api/user/register'; 
 
         const newUsers = {
             username: values.username,
@@ -75,7 +66,7 @@ const FormikSignUpForms = withFormik ({
             .then(res => {
                 console.log(`Login Successful`, res);
                 setStatus(res.data);
-                props.history.push('/'); 
+                props.history.push('/display'); 
             })
             .catch(err => console.log(err.response))
     }

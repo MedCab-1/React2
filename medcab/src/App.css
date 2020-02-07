@@ -2,6 +2,38 @@
   text-align: center;
 }
 
+.nav {
+  text-align: left;
+  margin: 5%;
+}
+
+.head {
+  margin-left: 17%;
+}
+
+.header {
+  font-size: xx-large;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign-up {
+  margin: 5% 35%;
+  background-color: lime;
+  opacity: .6;
+}
+
+.login {
+  margin: 5% 35%;
+  background-color: lime;
+  opacity: .6;
+}
+
+.footer {
+  margin-top: 10%;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
